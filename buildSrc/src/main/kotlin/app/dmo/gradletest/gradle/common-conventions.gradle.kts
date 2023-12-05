@@ -8,7 +8,7 @@ repositories({
 })
 
 private val optimalForkCount = optimalForkCount()
-tasks.test({
+tasks.withType(Test::class).configureEach({
     useJUnitPlatform()
     setMaxParallelForks(optimalForkCount)
 })

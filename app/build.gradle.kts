@@ -11,7 +11,7 @@ plugins {
 group = "app.dmo.gradletest.app"
 version = "unspecified"
 
-tasks.test({
+tasks.withType(Test::class).configureEach({
     finalizedBy(
         tasks.testAggregateTestReport,
         tasks.testCodeCoverageReport
