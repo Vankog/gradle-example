@@ -8,7 +8,7 @@ repositories({
 
 java({
     toolchain({
-        var version = JavaLanguageVersion.of(17)
+        var version = JavaLanguageVersion.of(21)
         languageVersion.set(version)
         setSourceCompatibility(version)
         setTargetCompatibility(version)
