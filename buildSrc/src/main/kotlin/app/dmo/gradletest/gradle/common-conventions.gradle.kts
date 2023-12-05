@@ -7,8 +7,10 @@ repositories({
     mavenCentral()
 })
 
+private val optimalForkCount = optimalForkCount()
 tasks.test({
     useJUnitPlatform()
+    setMaxParallelForks(optimalForkCount)
 })
 
 jacoco({
@@ -29,3 +31,6 @@ tasks.compileJava({
 })
 
 
+private fun optimalForkCount(): Int {
+    return (Runtime.getRuntime().availableProcessors() / 2).coerceAtLeast(1)
+}
