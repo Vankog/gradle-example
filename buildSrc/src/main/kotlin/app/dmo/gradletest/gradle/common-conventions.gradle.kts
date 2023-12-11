@@ -18,11 +18,19 @@ jacoco({
 })
 
 java({
+    val version = JavaLanguageVersion.of(21)
+    /*
+     * when you configure a JVM toolchain, it will automatically set the sourceCompatibility and targetCompatibility for you.
+     * It will set the values for both to the version of the toolchain.
+     * However, you can override this behavior by explicitly changing these values.
+     * Note: Configuring a JVM toolchain is the preferred way over setting up the sourceCompatibility and targetCompatibility.
+     */
+    //setSourceCompatibility(version)
+    //setTargetCompatibility(version)
     toolchain {
-        val version = JavaLanguageVersion.of(21)
         languageVersion.set(version)
-        setSourceCompatibility(version)
-        setTargetCompatibility(version)
+        // setSourceCompatibility(version)
+        // setTargetCompatibility(version) // By default, the targetCompatibility is set to the same value as the sourceCompaitiblity (if it is set).
     }
 })
 
